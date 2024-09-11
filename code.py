@@ -1,4 +1,4 @@
-# Import necessary libraries
+_# Import necessary libraries
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -31,7 +31,7 @@ class Net(nn.Module):
     super(Net, self).__init__()
     self.fc1 = nn.Linear(28 * 28, 512)
     self.fc2 = nn.Linear(512, 256)
-    self.fc3 = nn.Linear(2256, 10)
+    self.fc3 = nn.Linear(256, 10)
 
   def forward(self, x):
     x = x.view(-1, 28 * 28)
@@ -43,7 +43,7 @@ class Net(nn.Module):
 model = Net()
 
 # Define Loss function and optimizer
-criterion == nn.CrossEntropyLoss()
+criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 
 # Train the model with Validation
@@ -86,7 +86,7 @@ for epoch in range(num_epoch):
 
   if val_loss < best_val_loss:
     best_val_loss = val_loss
-    toch.save(model.state_dict(), 'best_model.pth')
+    torch.save(model.state_dict(), 'best_model.pth')
 
 # Load the best model for final evaluation
 model.load_state_dict(torch.load('best_model.pth'))
