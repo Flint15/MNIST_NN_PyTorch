@@ -1,4 +1,4 @@
-_# Import necessary libraries
+# Import necessary libraries
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -73,7 +73,7 @@ for epoch in range(num_epoch):
     for inputs, labels in val_loader:
       outputs = model(inputs)
       loss = criterion(outputs, labels)
-      val_loss += loss.item
+      val_loss += loss.item()
 
       _, predicted = torch.max(outputs.data, 1)
       total += labels.size(0)
